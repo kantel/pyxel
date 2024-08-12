@@ -1,10 +1,13 @@
 import pyxel
 
+# Ein paar nützliche Konstanten
 TS = 8       # Tilesize
 COLKEY = 0   # Color Key
 WALL = 2     # Mauer Tile No.
 
 def get_tile(tile_x, tile_y):
+    # pyxel.tilemaps() gibt ein Tupel mit den x- und y-Koordinaten
+    # aus der Tilemap des mit pget() identifizierten Tiles zurück
     return pyxel.tilemaps[0].pget(tile_x, tile_y)
 
 class Player:
@@ -13,7 +16,7 @@ class Player:
         self.x = _x*TS
         self.y = _y*TS
         self.w = self.h = TS
-        self.u = 0
+        self.u = 0   
         self.v = 0
         self.imagebank = 0
         
@@ -58,6 +61,5 @@ class App:
         pyxel.blt(self.player.x, self.player.y, self.player.imagebank,
                   self.player.u, self.player.v, self.player.w, self.player.h,
                   COLKEY)
-        
-        
+                
 App().run()
